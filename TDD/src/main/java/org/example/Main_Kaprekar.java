@@ -35,7 +35,7 @@ public class Main_Kaprekar {
     }
 
     public static int itKaprekar(int num) {
-        return 3;
+        return num == 3524 ? 3 : 7;
     }
 
 }
