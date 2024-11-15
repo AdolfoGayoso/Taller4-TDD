@@ -11,25 +11,27 @@ public class Main_Kaprekar {
         String numString = String.valueOf(num);
         char[] digitos = numString.toCharArray();
 
+        // Digitos ordendos de menor a mayor
         Arrays.sort(digitos);
         String ordenadosMenorMayor = new String(digitos);
 
-        Character[] digitosObj = new Character[digitos.length];
+        int numOrdenadoMenorMayor = Integer.parseInt(ordenadosMenorMayor);
+
+        // Digitos ordendos de mayor a menor
+        Character[] digitosCopia = new Character[digitos.length];
         for (int i = 0; i < digitos.length; i++) {
-            digitosObj[i] = digitos[i];
+            digitosCopia[i] = digitos[i];
         }
 
-        Arrays.sort(digitosObj, Collections.reverseOrder());
+        Arrays.sort(digitosCopia, Collections.reverseOrder());
 
         StringBuilder ordenadosMayorMenor = new StringBuilder();
-        for (Character c : digitosObj) {
+        for (Character c : digitosCopia) {
             ordenadosMayorMenor.append(c);
         }
+        int numOrdenadoMayorMenor = Integer.parseInt(ordenadosMayorMenor.toString());
 
-        int menorMayor = Integer.parseInt(ordenadosMenorMayor);
-        int mayorMenor = Integer.parseInt(ordenadosMayorMenor.toString());
-
-        return mayorMenor - menorMayor;
+        return numOrdenadoMayorMenor - numOrdenadoMenorMayor;
     }
 
     public static int itKaprekar(int num) {
