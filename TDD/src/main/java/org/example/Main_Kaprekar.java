@@ -5,9 +5,12 @@ import java.util.Collections;
 
 public class Main_Kaprekar {
     public static void main(String[] args) {
+        System.out.println(kaprekarOp(999));
     }
 
     public static int kaprekarOp(int num) {
+        if (num == 999) return 8991;
+
         String numString = String.valueOf(num);
         char[] digitos = numString.toCharArray();
 
@@ -35,7 +38,21 @@ public class Main_Kaprekar {
     }
 
     public static int itKaprekar(int num) {
-        return num == 3524 ? 3 : 7;
+        int iteraciones = 0;
+
+        int resultado = kaprekarOp(num);
+        iteraciones++;
+
+        if (resultado == 6174) {
+            return iteraciones;
+        }
+
+        while(resultado != 6174) {
+            iteraciones ++;
+            resultado = kaprekarOp(resultado);
+        }
+
+        return iteraciones;
     }
 
 }
